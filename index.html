@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raskem Maternity Homes – Health Care Services, Lugbe, Abuja</title>
+<meta name="description" content="Compassionate, professional maternity & health care for mothers and families in Lugbe, Abuja. Open 24 hours, every day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Libre Franklin',system-ui,sans-serif;background:#f6f2e9;color:#3a4230}
+a{color:#0e3f7e;text-decoration:none}
+a:hover{color:#1c8a34}
+input,textarea,button{font-family:inherit}
+textarea{resize:vertical}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(2.6);opacity:0}}
+.page{display:none;animation:fadeUp .4s ease both}
+.page.active{display:block}
+.nav-link{cursor:pointer;font-size:14px;font-weight:600;transition:color .15s;padding-bottom:2px;color:#3a4230;border-bottom:2px solid transparent}
+.nav-link.active{color:#1c8a34;border-bottom:2px solid #1c8a34}
+.faq-item{border:1px solid #eef0f4;background:#fff;border-radius:14px;padding:22px 24px;transition:all .15s;cursor:pointer}
+.faq-item.open{border-color:#cdd8ac;background:#f8faf5}
+.faq-icon{flex:none;width:26px;height:26px;border-radius:50%;background:#eaf5ee;color:#1c8a34;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400;transition:transform .2s}
+.faq-icon.open{transform:rotate(45deg)}
+.faq-answer{display:none;font-size:14px;color:#7a8072;line-height:1.7;margin-top:14px}
+.faq-item.open .faq-answer{display:block}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;background:#f6f2e9">
+
+<!-- UTILITY BAR -->
+<div style="background:#0a2f5e;color:#a9bcd8">
+  <div style="max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px">
+    <div style="display:flex;align-items:center;gap:8px">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Tudunwada, White House Line, Via FHA, Lugbe, Abuja, FCT</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="display:flex;align-items:center;gap:7px;color:#4fd07a;font-weight:700">
+        <span style="position:relative;display:flex;width:7px;height:7px">
+          <span style="position:absolute;inset:0;border-radius:50%;background:#4fd07a;animation:pulse 2s ease-out infinite"></span>
+          <span style="position:relative;width:7px;height:7px;border-radius:50%;background:#4fd07a"></span>
+        </span>Open 24 hours
+      </span>
+      <a href="tel:08033156436" style="color:#dbe6f5;font-weight:600">0803 315 6436</a>
+      <a href="tel:09099652929" style="color:#dbe6f5;font-weight:600">0909 965 2929</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header style="position:sticky;top:0;z-index:50;background:rgba(246,242,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e6ddca">
+  <div style="max-width:1180px;margin:0 auto;height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 28px">
+    <div onclick="navigate('home')" style="display:flex;align-items:center;gap:12px;cursor:pointer">
+      <img src="assets/logo.png" style="height:44px;width:auto" alt="Raskem Maternity Homes logo">
+      <div style="line-height:1.05">
+        <div style="font-weight:900;font-size:16px;color:#0e3f7e;letter-spacing:.2px">RASKEM MATERNITY HOMES</div>
+        <div style="font-size:9px;letter-spacing:2px;color:#1c8a34;font-weight:700">HEALTH CARE SERVICES · LUGBE, ABUJA</div>
+      </div>
+    </div>
+    <nav style="display:flex;align-items:center;gap:30px">
+      <span class="nav-link active" id="nav-home" onclick="navigate('home')">Home</span>
+      <span class="nav-link" id="nav-services" onclick="navigate('services')">Services</span>
+      <span class="nav-link" id="nav-about" onclick="navigate('about')">About Us</span>
+      <span class="nav-link" id="nav-contact" onclick="navigate('contact')">Contact</span>
+      <a href="tel:08033156436" style="display:flex;align-items:center;gap:8px;background:#1c8a34;color:#fff;font-weight:700;font-size:13px;padding:11px 20px;border-radius:8px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Us
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================================================== HOME ======================================================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Cpath d=%22M23 16v14M16 23h14%22 stroke=%22%230e3f7e%22 stroke-width=%221.3%22 stroke-linecap=%22round%22 opacity=%220.05%22/%3E%3C/svg%3E')">
+    <div style="position:absolute;right:-150px;top:-130px;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle at 42% 42%,#e4efe4,rgba(228,239,228,0) 70%);animation:floaty 9s ease-in-out infinite"></div>
+    <div style="position:absolute;left:-90px;bottom:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#e9f0f8,rgba(233,240,248,0) 70%)"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;padding:78px 28px 74px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #d6e6dc;color:#137a2b;font-size:11px;font-weight:700;letter-spacing:.6px;padding:8px 15px;border-radius:24px;margin-bottom:26px;box-shadow:0 6px 18px -10px rgba(28,138,52,.5)">
+          <span style="position:relative;display:flex;width:8px;height:8px">
+            <span style="position:absolute;inset:0;border-radius:50%;background:#1c8a34;animation:pulse 2s ease-out infinite"></span>
+            <span style="position:relative;width:8px;height:8px;border-radius:50%;background:#1c8a34"></span>
+          </span>24/7 EMERGENCY MATERNITY CARE
+        </div>
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:62px;line-height:1.01;color:#0e2f5e;letter-spacing:-1px;margin:0">Where every mother feels <span style="font-style:italic;color:#1c8a34">cared for</span></h1>
+        <p style="font-size:16.5px;line-height:1.75;color:#5a6152;margin:24px 0 32px;max-width:450px">From your first ante-natal visit to a safe delivery and beyond, we provide compassionate, professional care for you and your baby, day and night, in Lugbe, Abuja.</p>
+        <div style="display:flex;gap:16px;align-items:center">
+          <span onclick="navigate('services')" style="cursor:pointer;background:#0e3f7e;color:#fff;font-weight:700;font-size:14px;padding:16px 30px;border-radius:10px;box-shadow:0 14px 30px -12px rgba(14,63,126,.7)">Explore our services →</span>
+          <a href="tel:08033156436" style="font-weight:700;font-size:14px;color:#0e3f7e">or call 0803 315 6436</a>
+        </div>
+        <div style="display:flex;margin-top:44px;padding-top:28px;border-top:1px solid #e6ddca">
+          <div style="padding-right:30px"><div style="font-family:'Newsreader',serif;font-size:32px;color:#1c8a34;line-height:1">24/7</div><div style="font-size:12px;color:#8a8f80;font-weight:600;margin-top:5px">Emergency care</div></div>
+          <div style="padding:0 30px;border-left:1px solid #e6ddca"><div style="font-family:'Newsreader',serif;font-size:32px;color:#1c8a34;line-height:1">7</div><div style="font-size:12px;color:#8a8f80;font-weight:600;margin-top:5px">Core services</div></div>
+          <div style="padding-left:30px;border-left:1px solid #e6ddca"><div style="font-family:'Newsreader',serif;font-size:32px;color:#1c8a34;line-height:1">Lugbe</div><div style="font-size:12px;color:#8a8f80;font-weight:600;margin-top:5px">Abuja, FCT</div></div>
+        </div>
+      </div>
+      <div style="position:relative;display:flex;justify-content:center;padding:26px 0">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:430px;height:430px;border:1.5px dashed rgba(28,138,52,.28);border-radius:50%"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;border:1px solid rgba(14,63,126,.12);border-radius:50%"></div>
+        <div style="position:relative;width:336px;background:linear-gradient(165deg,#0e3f7e,#0a2f5e);border-radius:200px 200px 30px 30px;padding:42px 32px 30px;box-shadow:0 44px 90px -34px rgba(10,47,94,.8);overflow:hidden">
+          <div style="position:absolute;inset:0;opacity:.12;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Cpath d=%22M20 14v12M14 20h12%22 stroke=%22%23ffffff%22 stroke-width=%221.2%22 stroke-linecap=%22round%22/%3E%3C/svg%3E')"></div>
+          <div style="position:relative">
+            <div style="background:#fff;border-radius:110px 110px 16px 16px;padding:16px 12px 12px;margin:0 auto 20px;width:132px"><img src="assets/logo.png" style="height:104px;display:block;margin:0 auto" alt="Raskem logo"></div>
+            <div style="text-align:center;font-family:'Newsreader',serif;font-size:21px;color:#fff;margin-bottom:18px">Our Services</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:11px;font-size:13px;color:#dbe6f5;font-weight:600"><span style="flex:none;width:19px;height:19px;border-radius:50%;background:rgba(79,208,122,.18);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Ante-natal care</div>
+              <div style="display:flex;align-items:center;gap:11px;font-size:13px;color:#dbe6f5;font-weight:600"><span style="flex:none;width:19px;height:19px;border-radius:50%;background:rgba(79,208,122,.18);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Safe delivery, 24 hours</div>
+              <div style="display:flex;align-items:center;gap:11px;font-size:13px;color:#dbe6f5;font-weight:600"><span style="flex:none;width:19px;height:19px;border-radius:50%;background:rgba(79,208,122,.18);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Ultrasound scanning</div>
+              <div style="display:flex;align-items:center;gap:11px;font-size:13px;color:#dbe6f5;font-weight:600"><span style="flex:none;width:19px;height:19px;border-radius:50%;background:rgba(79,208,122,.18);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Family planning</div>
+              <div style="display:flex;align-items:center;gap:11px;font-size:13px;color:#dbe6f5;font-weight:600"><span style="flex:none;width:19px;height:19px;border-radius:50%;background:rgba(79,208,122,.18);display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>HIV counseling &amp; testing</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;top:28px;left:-8px;background:#1c8a34;color:#fff;border-radius:16px;padding:13px 17px;box-shadow:0 20px 40px -16px rgba(28,138,52,.75);display:flex;align-items:center;gap:12px">
+          <div style="font-family:'Newsreader',serif;font-size:26px;line-height:1">24/7</div>
+          <div style="font-size:11px;font-weight:600;line-height:1.35">Emergency care<br>always open</div>
+        </div>
+        <div style="position:absolute;bottom:32px;left:-16px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px -16px rgba(14,63,126,.4);display:flex;align-items:center;gap:11px">
+          <span style="position:relative;display:flex;width:10px;height:10px">
+            <span style="position:absolute;inset:0;border-radius:50%;background:#1c8a34;animation:pulse 2s ease-out infinite"></span>
+            <span style="position:relative;width:10px;height:10px;border-radius:50%;background:#1c8a34"></span>
+          </span>
+          <div><div style="font-size:12.5px;font-weight:800;color:#0e2f5e">Open now</div><div style="font-size:10.5px;font-weight:600;color:#8a8f80">Delivery ready · 24 hours</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div style="background:#0e3f7e;overflow:hidden;padding:15px 0">
+    <div style="display:flex;width:max-content;white-space:nowrap;animation:marquee 32s linear infinite">
+      <div style="display:flex;align-items:center"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">MATERNITY HOME</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ANTE-NATAL CARE</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">SAFE DELIVERY</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">FAMILY PLANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ULTRASOUND SCANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">HIV COUNSELING &amp; TESTING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">CONSULTANCY</span><span style="color:#4fd07a;font-size:13px">✚</span></div>
+      <div style="display:flex;align-items:center"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">MATERNITY HOME</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ANTE-NATAL CARE</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">SAFE DELIVERY</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">FAMILY PLANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ULTRASOUND SCANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">HIV COUNSELING &amp; TESTING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">CONSULTANCY</span><span style="color:#4fd07a;font-size:13px">✚</span></div>
+    </div>
+  </div>
+
+  <!-- SERVICES STRIP -->
+  <section style="background:#fff;border-top:1px solid #eef0f4;border-bottom:1px solid #eef0f4">
+    <div style="max-width:1180px;margin:0 auto;padding:64px 28px">
+      <div style="text-align:center;max-width:560px;margin:0 auto 44px">
+        <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">WHAT WE DO</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;color:#0e2f5e;margin:0;line-height:1.1">Complete care, every step of the way</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <div style="background:#f8faf8;border:1px solid #e8efe8;border-radius:16px;padding:28px">
+          <div style="width:46px;height:46px;border-radius:12px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div style="font-weight:800;font-size:17px;color:#0e2f5e;margin-bottom:7px">Ante-Natal Care</div>
+          <div style="font-size:13.5px;color:#7a8072;line-height:1.6">Regular check-ups and monitoring to keep you and your baby healthy throughout pregnancy.</div>
+        </div>
+        <div style="background:#f8faf8;border:1px solid #e8efe8;border-radius:16px;padding:28px">
+          <div style="width:46px;height:46px;border-radius:12px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3c0 1.6 1.2 2.5 3 5 1.8-2.5 3-3.4 3-5a3 3 0 0 0-3-3z"/><path d="M12 12v9"/><path d="M8 21h8"/></svg></div>
+          <div style="font-weight:800;font-size:17px;color:#0e2f5e;margin-bottom:7px">Safe Delivery</div>
+          <div style="font-size:13.5px;color:#7a8072;line-height:1.6">Skilled, supported childbirth in a clean, caring environment, available around the clock.</div>
+        </div>
+        <div style="background:#f8faf8;border:1px solid #e8efe8;border-radius:16px;padding:28px">
+          <div style="width:46px;height:46px;border-radius:12px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <div style="font-weight:800;font-size:17px;color:#0e2f5e;margin-bottom:7px">Ultrasound Scanning</div>
+          <div style="font-size:13.5px;color:#7a8072;line-height:1.6">Clear imaging to follow your baby's growth and reassure you at every stage.</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:30px">
+        <span onclick="navigate('services')" style="cursor:pointer;display:inline-block;border:1.5px solid #cdd8ac;color:#0e3f7e;font-weight:700;font-size:13.5px;padding:13px 26px;border-radius:30px">View all 7 services →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section style="max-width:1180px;margin:0 auto;padding:70px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center">
+    <div style="position:relative">
+      <div style="background:linear-gradient(160deg,#eaf5ee,#e4efe4);border-radius:24px;padding:44px 40px;position:relative;overflow:hidden">
+        <div style="position:absolute;right:-30px;bottom:-30px;width:160px;height:160px;border-radius:50%;background:rgba(28,138,52,.12)"></div>
+        <img src="assets/logo.png" style="height:120px;display:block;margin:0 auto" alt="Raskem logo">
+        <div style="text-align:center;font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:#0e2f5e;margin-top:18px;position:relative">"Your safety and comfort, our calling."</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">WHY RASKEM</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0 0 24px;line-height:1.12">Trusted maternity care in the heart of Lugbe</h2>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;gap:16px"><div style="flex:none;width:40px;height:40px;border-radius:10px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><div style="font-weight:800;font-size:15px;color:#0e2f5e">Experienced, caring team</div><div style="font-size:13.5px;color:#7a8072;line-height:1.6">Trained professionals who treat you like family.</div></div></div>
+        <div style="display:flex;gap:16px"><div style="flex:none;width:40px;height:40px;border-radius:10px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><div style="font-weight:800;font-size:15px;color:#0e2f5e">Open 24 hours, every day</div><div style="font-size:13.5px;color:#7a8072;line-height:1.6">Emergency and delivery care whenever you need it.</div></div></div>
+        <div style="display:flex;gap:16px"><div style="flex:none;width:40px;height:40px;border-radius:10px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><div style="font-weight:800;font-size:15px;color:#0e2f5e">Everything in one place</div><div style="font-size:13.5px;color:#7a8072;line-height:1.6">Ante-natal, scanning, testing and consultancy under one roof.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEALTH TIPS -->
+  <section style="background:#fff;border-top:1px solid #eef0f4">
+    <div style="max-width:1180px;margin:0 auto;padding:64px 28px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px">
+        <div><div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">HEALTH TIPS</div><h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#0e2f5e;margin:0;line-height:1.1">Guidance for a healthy pregnancy</h2></div>
+        <span style="font-weight:700;font-size:13.5px;color:#0e3f7e">More tips coming soon →</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <div style="border:1px solid #e8efe8;border-radius:16px;overflow:hidden">
+          <div style="height:130px;background:linear-gradient(135deg,#0e3f7e,#1c5aa8)"></div>
+          <div style="padding:22px"><div style="font-size:11px;font-weight:700;color:#1c8a34;letter-spacing:.5px;margin-bottom:8px">NUTRITION</div><div style="font-weight:800;font-size:16px;color:#0e2f5e;line-height:1.3;margin-bottom:8px">Eating well through every trimester</div><div style="font-size:13px;color:#7a8072;line-height:1.6">Simple, affordable foods that support you and your baby's growth.</div></div>
+        </div>
+        <div style="border:1px solid #e8efe8;border-radius:16px;overflow:hidden">
+          <div style="height:130px;background:linear-gradient(135deg,#1c8a34,#4fd07a)"></div>
+          <div style="padding:22px"><div style="font-size:11px;font-weight:700;color:#1c8a34;letter-spacing:.5px;margin-bottom:8px">ANTE-NATAL</div><div style="font-weight:800;font-size:16px;color:#0e2f5e;line-height:1.3;margin-bottom:8px">Why regular check-ups matter</div><div style="font-size:13px;color:#7a8072;line-height:1.6">Catching issues early keeps both mother and baby safe.</div></div>
+        </div>
+        <div style="border:1px solid #e8efe8;border-radius:16px;overflow:hidden">
+          <div style="height:130px;background:linear-gradient(135deg,#0a2f5e,#0e3f7e)"></div>
+          <div style="padding:22px"><div style="font-size:11px;font-weight:700;color:#1c8a34;letter-spacing:.5px;margin-bottom:8px">NEWBORN CARE</div><div style="font-weight:800;font-size:16px;color:#0e2f5e;line-height:1.3;margin-bottom:8px">Caring for your baby's first weeks</div><div style="font-size:13px;color:#7a8072;line-height:1.6">Feeding, sleep and warmth are the essentials for new parents.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="background:linear-gradient(160deg,#0e3f7e,#0a2f5e);position:relative;overflow:hidden">
+    <div style="position:absolute;left:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(28,138,52,.5),transparent 70%)"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;padding:56px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div><h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#fff;margin:0 0 8px">Planning your visit?</h2><p style="font-size:15px;color:#a9bcd8;margin:0">We're here to answer your questions, any time of day.</p></div>
+      <div style="display:flex;gap:14px">
+        <span onclick="navigate('contact')" style="cursor:pointer;background:#1c8a34;color:#fff;font-weight:700;font-size:14px;padding:15px 28px;border-radius:8px">Contact us</span>
+        <a href="tel:08033156436" style="border:1.5px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:14px;padding:15px 28px;border-radius:8px">0803 315 6436</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================== SERVICES ======================================================== -->
+<div id="page-services" class="page">
+  <section style="background:linear-gradient(160deg,#eaf5ee,#f6f2e9);border-bottom:1px solid #e6ddca">
+    <div style="max-width:1180px;margin:0 auto;padding:60px 28px 54px">
+      <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:14px">OUR SERVICES</div>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05;max-width:640px">Comprehensive maternity &amp; health care, all under one roof</h1>
+      <p style="font-size:16px;line-height:1.7;color:#5a6152;margin:20px 0 0;max-width:560px">From pregnancy to delivery and general family health, our team offers the full range of services your family needs, with professional, confidential care.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:60px 28px">
+    <div id="services-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:26px"></div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:#fff;border-top:1px solid #eef0f4">
+    <div style="max-width:860px;margin:0 auto;padding:66px 28px">
+      <div style="text-align:center;margin-bottom:40px">
+        <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">FREQUENTLY ASKED</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0">Questions, answered</h2>
+      </div>
+      <div id="faq-list" style="display:flex;flex-direction:column;gap:12px"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================== ABOUT ======================================================== -->
+<div id="page-about" class="page">
+  <section style="background:linear-gradient(160deg,#eaf5ee,#f6f2e9);border-bottom:1px solid #e6ddca">
+    <div style="max-width:1180px;margin:0 auto;padding:60px 28px 54px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center">
+      <div>
+        <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:14px">ABOUT US</div>
+        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05">Caring for mothers &amp; families in Abuja</h1>
+        <p style="font-size:16px;line-height:1.75;color:#5a6152;margin:22px 0 0">Raskem Maternity Homes is a maternity home &amp; health care service based in Tudunwada, Lugbe, Abuja. We provide ante-natal, delivery, family planning, scanning, HIV counseling &amp; testing, and general consultancy. We combine professional, clinical standards with the warmth every family deserves.</p>
+      </div>
+      <div style="background:#fff;border-radius:22px;padding:36px;box-shadow:0 20px 50px -30px rgba(14,63,126,.5);text-align:center">
+        <img src="assets/logo.png" style="height:130px" alt="Raskem logo">
+        <div style="font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:#0e2f5e;margin-top:14px">Raskem Maternity Home<br>&amp; Health Care Services</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:64px 28px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="background:#fff;border:1px solid #eef0f4;border-radius:18px;padding:32px"><div style="font-family:'Newsreader',serif;font-size:24px;color:#1c8a34;margin-bottom:12px">Our Mission</div><div style="font-size:14px;color:#7a8072;line-height:1.7">To deliver safe, compassionate and affordable maternity care that supports every mother from pregnancy through to a healthy delivery and beyond.</div></div>
+      <div style="background:#0e3f7e;border-radius:18px;padding:32px"><div style="font-family:'Newsreader',serif;font-size:24px;color:#fff;margin-bottom:12px">Our Vision</div><div style="font-size:14px;color:#b9c9e2;line-height:1.7">To be a trusted name in maternal and family health care in the FCT, known for professional standards and a caring heart.</div></div>
+      <div style="background:#fff;border:1px solid #eef0f4;border-radius:18px;padding:32px"><div style="font-family:'Newsreader',serif;font-size:24px;color:#1c8a34;margin-bottom:12px">Our Values</div><div style="font-size:14px;color:#7a8072;line-height:1.7">Safety first, dignity for every patient, confidentiality, and care that is available whenever it is needed, 24 hours a day.</div></div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:1px solid #eef0f4">
+    <div style="max-width:1180px;margin:0 auto;padding:64px 28px">
+      <div style="text-align:center;max-width:560px;margin:0 auto 44px">
+        <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">WHY FAMILIES CHOOSE US</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0;line-height:1.1">Professional care, delivered with warmth</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+        <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">24/7</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Always open for<br>emergencies</div></div>
+        <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">7</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Services under<br>one roof</div></div>
+        <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">100%</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Confidential<br>counseling</div></div>
+        <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">Lugbe</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Easy to reach<br>in Abuja</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================== CONTACT ======================================================== -->
+<div id="page-contact" class="page">
+  <section style="background:linear-gradient(160deg,#eaf5ee,#f6f2e9);border-bottom:1px solid #e6ddca">
+    <div style="max-width:1180px;margin:0 auto;padding:60px 28px 54px">
+      <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:14px">CONTACT US</div>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05">We're here to help, any time</h1>
+      <p style="font-size:16px;line-height:1.7;color:#5a6152;margin:20px 0 0;max-width:520px">Call us, send a message, or visit our maternity home in Lugbe. For emergencies, our line is open 24 hours a day.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:60px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;gap:16px;background:#fff;border:1px solid #eef0f4;border-radius:16px;padding:24px">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div style="font-weight:800;font-size:15px;color:#0e2f5e;margin-bottom:4px">Visit us</div><div style="font-size:13.5px;color:#7a8072;line-height:1.6">Tudunwada, White House Line,<br>Via FHA, Lugbe, Abuja, FCT</div></div>
+      </div>
+      <div style="display:flex;gap:16px;background:#fff;border:1px solid #eef0f4;border-radius:16px;padding:24px">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div style="font-weight:800;font-size:15px;color:#0e2f5e;margin-bottom:4px">Call us</div><div style="font-size:13.5px;color:#7a8072;line-height:1.7"><a href="tel:08033156436">0803 315 6436</a><br><a href="tel:09099652929">0909 965 2929</a></div></div>
+      </div>
+      <div style="display:flex;gap:16px;background:#0e3f7e;border-radius:16px;padding:24px">
+        <div style="flex:none;width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><div style="font-weight:800;font-size:15px;color:#fff;margin-bottom:4px">Opening hours</div><div style="font-size:13.5px;color:#b9c9e2;line-height:1.7">Open 24 hours, 7 days a week<br><span style="color:#4fd07a;font-weight:700">Emergencies welcome anytime</span></div></div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid #eef0f4;border-radius:20px;padding:36px">
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;color:#0e2f5e;margin:0 0 6px">Send us a message</h2>
+      <p style="font-size:13.5px;color:#7a8072;margin:0 0 24px">We'll get back to you as soon as we can.</p>
+      <form id="contact-form" onsubmit="handleFormSubmit(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+          <div><label style="display:block;font-size:12px;font-weight:700;color:#0e2f5e;margin-bottom:6px">Full name</label><input name="name" placeholder="Your name" style="width:100%;border:1.5px solid #dfe4ec;border-radius:10px;padding:12px 14px;font-size:14px;color:#0e2f5e;outline:none;background:#fafbfd"></div>
+          <div><label style="display:block;font-size:12px;font-weight:700;color:#0e2f5e;margin-bottom:6px">Phone</label><input name="phone" placeholder="Phone number" style="width:100%;border:1.5px solid #dfe4ec;border-radius:10px;padding:12px 14px;font-size:14px;color:#0e2f5e;outline:none;background:#fafbfd"></div>
+        </div>
+        <div style="margin-bottom:16px"><label style="display:block;font-size:12px;font-weight:700;color:#0e2f5e;margin-bottom:6px">How can we help?</label><textarea name="message" placeholder="Tell us what you need..." style="width:100%;min-height:120px;border:1.5px solid #dfe4ec;border-radius:10px;padding:12px 14px;font-size:14px;color:#0e2f5e;outline:none;background:#fafbfd"></textarea></div>
+        <button type="submit" style="width:100%;background:#1c8a34;color:#fff;font-weight:700;font-size:14px;padding:15px;border:none;border-radius:10px;cursor:pointer">Send message</button>
+      </form>
+      <div id="form-success" style="display:none;text-align:center;padding:20px;background:#f0faf3;border-radius:10px;color:#137a2b;font-weight:700;font-size:15px">Thank you! We'll be in touch shortly.</div>
+      <div style="text-align:center;font-size:12px;color:#a0a698;margin-top:14px">Or call <a href="tel:08033156436" style="font-weight:700">0803 315 6436</a> for a faster response.</div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:1px solid #eef0f4">
+    <div style="max-width:1180px;margin:0 auto;padding:60px 28px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+        <div><div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">FIND US</div><h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#0e2f5e;margin:0;line-height:1.1">Tudunwada, Lugbe, Abuja</h2></div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Tudun+Wada+Junction+FHA+Lugbe+Abuja" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #cdd8ac;color:#0e3f7e;font-weight:700;font-size:13.5px;padding:12px 22px;border-radius:30px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          Get directions
+        </a>
+      </div>
+      <div style="border-radius:20px;overflow:hidden;border:1px solid #e8efe8;box-shadow:0 20px 50px -30px rgba(14,63,126,.5)">
+        <iframe title="Map of Raskem Maternity Homes, Lugbe, Abuja" src="https://www.google.com/maps?q=Tudun%20Wada%20Junction%2C%20FHA%2C%20Lugbe%2C%20Abuja%2C%20Nigeria&z=16&output=embed" width="100%" height="420" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#0a2f5e;color:#b9c9e2">
+  <div style="max-width:1180px;margin:0 auto;padding:56px 28px 32px">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+          <div style="background:#fff;border-radius:10px;padding:6px"><img src="assets/logo.png" style="height:40px;display:block" alt="Raskem logo"></div>
+          <div style="line-height:1.1"><div style="font-weight:900;font-size:15px;color:#fff">RASKEM MATERNITY HOMES</div><div style="font-size:8.5px;letter-spacing:1.5px;color:#4fd07a;font-weight:700">HEALTH CARE SERVICES</div></div>
+        </div>
+        <p style="font-size:13px;line-height:1.7;margin:0;color:#8fa4c4">Compassionate, professional maternity &amp; health care for mothers and families in Lugbe, Abuja. We are open 24 hours, every day.</p>
+      </div>
+      <div>
+        <div style="font-weight:800;font-size:12px;letter-spacing:1px;color:#fff;margin-bottom:16px">EXPLORE</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px">
+          <span onclick="navigate('home')" style="cursor:pointer;color:#b9c9e2">Home</span>
+          <span onclick="navigate('services')" style="cursor:pointer;color:#b9c9e2">Services</span>
+          <span onclick="navigate('about')" style="cursor:pointer;color:#b9c9e2">About Us</span>
+          <span onclick="navigate('contact')" style="cursor:pointer;color:#b9c9e2">Contact</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:800;font-size:12px;letter-spacing:1px;color:#fff;margin-bottom:16px">SERVICES</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px;color:#8fa4c4">
+          <span>Ante-Natal Care</span><span>Delivery</span><span>Scanning</span><span>Family Planning</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:800;font-size:12px;letter-spacing:1px;color:#fff;margin-bottom:16px">GET IN TOUCH</div>
+        <div style="font-size:13.5px;line-height:1.8;color:#8fa4c4">Tudunwada, White House Line,<br>Via FHA, Lugbe, Abuja, FCT<br><a href="tel:08033156436" style="color:#4fd07a;font-weight:700">0803 315 6436</a><br><a href="tel:09099652929" style="color:#4fd07a;font-weight:700">0909 965 2929</a></div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#7089ad">
+      <div>© 2026 Raskem Maternity Homes &amp; Health Care Services. All rights reserved.</div>
+      <div>Serving families in Lugbe, Abuja, FCT</div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+const PAGES = ['home','services','about','contact'];
+let currentPage = 'home';
+let openFaq = 0;
+
+const services = [
+  { no:'01', title:'Maternity Home', desc:'A safe, welcoming home for expectant and new mothers, with round-the-clock support before, during and after delivery.' },
+  { no:'02', title:'Ante-Natal Care', desc:'Routine check-ups, monitoring and health advice to keep you and your baby well throughout your pregnancy.' },
+  { no:'03', title:'Delivery', desc:'Skilled, supported childbirth in a clean and caring environment, available 24 hours a day.' },
+  { no:'04', title:'Family Planning', desc:'Confidential counseling and safe options to help you plan your family with confidence.' },
+  { no:'05', title:'Ultrasound Scanning', desc:'Clear imaging to follow your baby’s growth and reassure you at every stage of pregnancy.' },
+  { no:'06', title:'HIV Counseling & Testing', desc:'Confidential, judgement-free testing, counseling and guidance for you and your family.' },
+  { no:'07', title:'Consultancy', desc:'General health consultations and expert advice from our experienced team.' },
+];
+
+const faqs = [
+  { q:'Are you open 24 hours?', a:'Yes. Our maternity home is open 24 hours a day, 7 days a week. Emergencies and deliveries are welcome at any time. Just call ahead if you can.' },
+  { q:'Where are you located?', a:'We are at Tudunwada, White House Line, Via FHA, Lugbe, Abuja, FCT. It’s easy to reach from around the Lugbe area.' },
+  { q:'Do I need an appointment for ante-natal care?', a:'Walk-ins are welcome, but calling ahead on 0803 315 6436 helps us prepare for your visit and reduces your waiting time.' },
+  { q:'Is HIV counseling and testing confidential?', a:'Absolutely. All counseling and testing is completely confidential and handled with care and respect.' },
+  { q:'What should I bring for delivery?', a:'Bring your ante-natal records, personal items for you and the baby, and any prescribed medication. Our team will guide you through the rest.' },
+  { q:'Can my partner or a relative stay with me?', a:'Yes. We understand how important support is during pregnancy and delivery, so a partner or close relative is welcome to be with you.' },
+  { q:'How much do your services cost?', a:'Our fees are kept fair and affordable. Costs depend on the service you need, so please call us on 0803 315 6436 and we will gladly explain the options.' },
+  { q:'What care do you offer after my baby is born?', a:'We provide post-natal check-ups for mother and baby, feeding and newborn-care guidance, and family planning advice whenever you are ready.' },
+  { q:'What happens if I need specialist care?', a:'If a case needs specialist attention beyond our home, our team will stabilise you and arrange a prompt referral to an appropriate hospital.' },
+];
+
+function renderServices() {
+  const grid = document.getElementById('services-grid');
+  grid.innerHTML = services.map(s => `
+    <div style="display:flex;gap:20px;background:#fff;border:1px solid #eef0f4;border-radius:18px;padding:28px">
+      <div style="flex:none;width:52px;height:52px;border-radius:13px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-size:22px;font-weight:600;color:#1c8a34">${s.no}</div>
+      <div><div style="font-weight:800;font-size:19px;color:#0e2f5e;margin-bottom:8px">${s.title}</div><div style="font-size:14px;color:#7a8072;line-height:1.65">${s.desc}</div></div>
+    </div>
+  `).join('');
+}
+
+function renderFaqs() {
+  const list = document.getElementById('faq-list');
+  list.innerHTML = faqs.map((f, i) => `
+    <div class="faq-item${openFaq === i ? ' open' : ''}" onclick="toggleFaq(${i})">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div style="font-weight:700;font-size:15.5px;color:#0e2f5e">${f.q}</div>
+        <div class="faq-icon${openFaq === i ? ' open' : ''}">+</div>
+      </div>
+      <div class="faq-answer">${f.a}</div>
+    </div>
+  `).join('');
+}
+
+function toggleFaq(i) {
+  openFaq = openFaq === i ? -1 : i;
+  renderFaqs();
+}
+
+function navigate(page) {
+  if (!PAGES.includes(page)) return;
+  currentPage = page;
+  window.scrollTo(0, 0);
+  PAGES.forEach(p => {
+    document.getElementById('page-' + p).classList.toggle('active', p === page);
+    const navEl = document.getElementById('nav-' + p);
+    if (navEl) navEl.classList.toggle('active', p === page);
+  });
+  if (page === 'services') { renderServices(); renderFaqs(); }
+  history.replaceState(null, '', '#' + page);
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+
+// Init from hash
+(function init() {
+  renderServices();
+  renderFaqs();
+  const hash = location.hash.replace('#', '');
+  if (PAGES.includes(hash)) navigate(hash);
+})();
+
+window.addEventListener('popstate', () => {
+  const hash = location.hash.replace('#', '');
+  if (PAGES.includes(hash)) navigate(hash);
+});
+</script>
+</body>
+</html>
