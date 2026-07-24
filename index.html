@@ -160,19 +160,86 @@ textarea{resize:vertical}
 .faq-icon.open{transform:rotate(45deg)}
 .faq-answer{display:none;font-size:14px;color:#7a8072;line-height:1.7;margin-top:14px}
 .faq-item.open .faq-answer{display:block}
+img{max-width:100%}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;align-items:center;justify-content:center}
+.menu-toggle .icon-close{display:none}
+.menu-toggle.open .icon-burger{display:none}
+.menu-toggle.open .icon-close{display:block}
+header.no-blur{backdrop-filter:none !important}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr !important;gap:40px !important;padding:56px 24px 44px !important}
+  .hero-h1{font-size:44px !important}
+  .stack-grid{grid-template-columns:1fr !important;gap:36px !important}
+  .grid-3{grid-template-columns:repeat(2,1fr) !important}
+  .grid-4{grid-template-columns:repeat(2,1fr) !important}
+  #services-grid{grid-template-columns:1fr !important}
+  .footer-grid{grid-template-columns:repeat(2,1fr) !important;gap:28px !important}
+}
+
+@media (max-width:860px){
+  .menu-toggle{display:inline-flex !important}
+  #main-nav{
+    position:fixed;
+    top:var(--header-h,74px);right:-100%;bottom:0;
+    width:100%;
+    background:#f6f2e9;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    padding:28px !important;
+    gap:6px !important;
+    transition:right .25s ease;
+    z-index:60;
+    overflow-y:auto;
+    border-top:1px solid #e6ddca;
+  }
+  #main-nav.open{right:0}
+  #main-nav .nav-link{font-size:17px !important;padding:14px 0 !important;width:100%;border-bottom:1px solid #eee6d3 !important}
+  .nav-call-btn{width:100%;justify-content:center !important;margin-top:16px}
+}
+
+@media (max-width:640px){
+  .page-h1{font-size:32px !important}
+  .hero-h1{font-size:32px !important;letter-spacing:normal !important}
+  .hero-grid{padding:40px 20px 32px !important;gap:28px !important}
+  .hero-cta-row{flex-wrap:wrap !important;gap:14px !important}
+  .hero-stats > div{padding-left:16px !important;padding-right:16px !important}
+  .hero-visual{padding:12px 0 !important}
+  .hero-circle-lg{width:250px !important;height:250px !important}
+  .hero-circle-sm{width:190px !important;height:190px !important}
+  .hero-card{width:220px !important;padding:30px 18px 20px !important}
+  .hero-badge-top{left:0 !important;top:0 !important;padding:10px 13px !important}
+  .hero-badge-bottom{left:0 !important;bottom:-34px !important;padding:10px 13px !important}
+  .hero-visual{margin-bottom:34px !important}
+  .section-h2{font-size:25px !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .form-row-2{grid-template-columns:1fr !important}
+  .footer-grid{grid-template-columns:1fr !important}
+  .cta-band-inner{flex-direction:column !important;text-align:center !important;gap:20px !important}
+  .cta-band-inner > div:last-child{flex-direction:column !important;width:100% !important}
+  .cta-band-inner > div:last-child > *{width:100% !important;text-align:center !important;justify-content:center !important;box-sizing:border-box}
+  .topbar-address{display:none !important}
+  .topbar-links{width:100%;justify-content:center !important;flex-wrap:wrap !important;gap:10px !important}
+}
+
+@media (max-width:480px){
+  .grid-4{grid-template-columns:repeat(2,1fr) !important;gap:14px !important}
+  header > div{height:auto !important;min-height:64px !important;padding:10px 16px !important}
+}
 </style>
 </head>
 <body>
-<div style="min-height:100vh;background:#f6f2e9">
+<div style="min-height:100vh;background:#f6f2e9;overflow-x:clip">
 
 <!-- UTILITY BAR -->
 <div style="background:#0a2f5e;color:#a9bcd8">
   <div style="max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px">
-    <div style="display:flex;align-items:center;gap:8px">
+    <div class="topbar-address" style="display:flex;align-items:center;gap:8px">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4fd07a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       <span>Tudunwada, White House Line, Via FHA, Lugbe, Abuja, FCT</span>
     </div>
-    <div style="display:flex;align-items:center;gap:20px">
+    <div class="topbar-links" style="display:flex;align-items:center;gap:20px">
       <span style="display:flex;align-items:center;gap:7px;color:#4fd07a;font-weight:700">
         <span style="position:relative;display:flex;width:7px;height:7px">
           <span style="position:absolute;inset:0;border-radius:50%;background:#4fd07a;animation:pulse 2s ease-out infinite"></span>
@@ -195,12 +262,16 @@ textarea{resize:vertical}
         <div style="font-size:9px;letter-spacing:2px;color:#1c8a34;font-weight:700">HEALTH CARE SERVICES · LUGBE, ABUJA</div>
       </div>
     </div>
-    <nav style="display:flex;align-items:center;gap:30px">
+    <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+      <svg class="icon-burger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e3f7e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e3f7e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav id="main-nav" style="display:flex;align-items:center;gap:30px">
       <span class="nav-link active" id="nav-home" onclick="navigate('home')">Home</span>
       <span class="nav-link" id="nav-services" onclick="navigate('services')">Services</span>
       <span class="nav-link" id="nav-about" onclick="navigate('about')">About Us</span>
       <span class="nav-link" id="nav-contact" onclick="navigate('contact')">Contact</span>
-      <a href="tel:08111036705" style="display:flex;align-items:center;gap:8px;background:#1c8a34;color:#fff;font-weight:700;font-size:13px;padding:11px 20px;border-radius:8px">
+      <a href="tel:08111036705" class="nav-call-btn" style="display:flex;align-items:center;gap:8px;background:#1c8a34;color:#fff;font-weight:700;font-size:13px;padding:11px 20px;border-radius:8px">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Call Us
       </a>
@@ -217,7 +288,7 @@ textarea{resize:vertical}
   <section style="position:relative;overflow:hidden;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2246%22 height=%2246%22%3E%3Cpath d=%22M23 16v14M16 23h14%22 stroke=%22%230e3f7e%22 stroke-width=%221.3%22 stroke-linecap=%22round%22 opacity=%220.05%22/%3E%3C/svg%3E')">
     <div style="position:absolute;right:-150px;top:-130px;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle at 42% 42%,#e4efe4,rgba(228,239,228,0) 70%);animation:floaty 9s ease-in-out infinite"></div>
     <div style="position:absolute;left:-90px;bottom:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#e9f0f8,rgba(233,240,248,0) 70%)"></div>
-    <div style="position:relative;max-width:1180px;margin:0 auto;padding:78px 28px 74px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
+    <div class="hero-grid stack-grid" style="position:relative;max-width:1180px;margin:0 auto;padding:78px 28px 74px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center">
       <div>
         <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #d6e6dc;color:#137a2b;font-size:11px;font-weight:700;letter-spacing:.6px;padding:8px 15px;border-radius:24px;margin-bottom:26px;box-shadow:0 6px 18px -10px rgba(28,138,52,.5)">
           <span style="position:relative;display:flex;width:8px;height:8px">
@@ -225,22 +296,22 @@ textarea{resize:vertical}
             <span style="position:relative;width:8px;height:8px;border-radius:50%;background:#1c8a34"></span>
           </span>24/7 EMERGENCY MATERNITY CARE
         </div>
-        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:62px;line-height:1.01;color:#0e2f5e;letter-spacing:-1px;margin:0">Where every mother feels <span style="font-style:italic;color:#1c8a34">cared for</span></h1>
+        <h1 class="hero-h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:62px;line-height:1.01;color:#0e2f5e;letter-spacing:-1px;margin:0">Where every mother feels <span style="font-style:italic;color:#1c8a34">cared for</span></h1>
         <p style="font-size:16.5px;line-height:1.75;color:#5a6152;margin:24px 0 32px;max-width:450px">From your first ante-natal visit to a safe delivery and beyond, we provide compassionate, professional care for you and your baby, day and night, in Lugbe, Abuja.</p>
-        <div style="display:flex;gap:16px;align-items:center">
+        <div class="hero-cta-row" style="display:flex;gap:16px;align-items:center">
           <span onclick="navigate('services')" style="cursor:pointer;background:#0e3f7e;color:#fff;font-weight:700;font-size:14px;padding:16px 30px;border-radius:10px;box-shadow:0 14px 30px -12px rgba(14,63,126,.7)">Explore our services →</span>
           <a href="tel:08111036705" style="font-weight:700;font-size:14px;color:#0e3f7e">or call 0811 103 6705</a>
         </div>
-        <div style="display:flex;margin-top:44px;padding-top:28px;border-top:1px solid #e6ddca">
+        <div class="hero-stats" style="display:flex;margin-top:44px;padding-top:28px;border-top:1px solid #e6ddca">
           <div style="padding-right:30px"><div style="font-family:'Newsreader',serif;font-size:32px;color:#1c8a34;line-height:1">24/7</div><div style="font-size:12px;color:#8a8f80;font-weight:600;margin-top:5px">Emergency care</div></div>
           <div style="padding:0 30px;border-left:1px solid #e6ddca"><div style="font-family:'Newsreader',serif;font-size:32px;color:#1c8a34;line-height:1">7</div><div style="font-size:12px;color:#8a8f80;font-weight:600;margin-top:5px">Core services</div></div>
           <div style="padding-left:30px;border-left:1px solid #e6ddca"><div style="font-family:'Newsreader',serif;font-size:32px;color:#1c8a34;line-height:1">Lugbe</div><div style="font-size:12px;color:#8a8f80;font-weight:600;margin-top:5px">Abuja, FCT</div></div>
         </div>
       </div>
-      <div style="position:relative;display:flex;justify-content:center;padding:26px 0">
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:430px;height:430px;border:1.5px dashed rgba(28,138,52,.28);border-radius:50%"></div>
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;border:1px solid rgba(14,63,126,.12);border-radius:50%"></div>
-        <div style="position:relative;width:336px;background:linear-gradient(165deg,#0e3f7e,#0a2f5e);border-radius:200px 200px 30px 30px;padding:42px 32px 30px;box-shadow:0 44px 90px -34px rgba(10,47,94,.8);overflow:hidden">
+      <div class="hero-visual" style="position:relative;display:flex;justify-content:center;padding:26px 0">
+        <div class="hero-circle-lg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:430px;height:430px;border:1.5px dashed rgba(28,138,52,.28);border-radius:50%"></div>
+        <div class="hero-circle-sm" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;border:1px solid rgba(14,63,126,.12);border-radius:50%"></div>
+        <div class="hero-card" style="position:relative;width:336px;background:linear-gradient(165deg,#0e3f7e,#0a2f5e);border-radius:200px 200px 30px 30px;padding:42px 32px 30px;box-shadow:0 44px 90px -34px rgba(10,47,94,.8);overflow:hidden">
           <div style="position:absolute;inset:0;opacity:.12;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Cpath d=%22M20 14v12M14 20h12%22 stroke=%22%23ffffff%22 stroke-width=%221.2%22 stroke-linecap=%22round%22/%3E%3C/svg%3E')"></div>
           <div style="position:relative">
             <div style="background:#fff;border-radius:110px 110px 16px 16px;padding:16px 12px 12px;margin:0 auto 20px;width:132px"><img src="assets/logo.png" style="height:104px;display:block;margin:0 auto" alt="Raskem logo"></div>
@@ -254,11 +325,11 @@ textarea{resize:vertical}
             </div>
           </div>
         </div>
-        <div style="position:absolute;top:28px;left:-8px;background:#1c8a34;color:#fff;border-radius:16px;padding:13px 17px;box-shadow:0 20px 40px -16px rgba(28,138,52,.75);display:flex;align-items:center;gap:12px">
+        <div class="hero-badge-top" style="position:absolute;top:28px;left:-8px;background:#1c8a34;color:#fff;border-radius:16px;padding:13px 17px;box-shadow:0 20px 40px -16px rgba(28,138,52,.75);display:flex;align-items:center;gap:12px">
           <div style="font-family:'Newsreader',serif;font-size:26px;line-height:1">24/7</div>
           <div style="font-size:11px;font-weight:600;line-height:1.35">Emergency care<br>always open</div>
         </div>
-        <div style="position:absolute;bottom:32px;left:-16px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px -16px rgba(14,63,126,.4);display:flex;align-items:center;gap:11px">
+        <div class="hero-badge-bottom" style="position:absolute;bottom:32px;left:-16px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px -16px rgba(14,63,126,.4);display:flex;align-items:center;gap:11px">
           <span style="position:relative;display:flex;width:10px;height:10px">
             <span style="position:absolute;inset:0;border-radius:50%;background:#1c8a34;animation:pulse 2s ease-out infinite"></span>
             <span style="position:relative;width:10px;height:10px;border-radius:50%;background:#1c8a34"></span>
@@ -272,8 +343,8 @@ textarea{resize:vertical}
   <!-- MARQUEE -->
   <div style="background:#0e3f7e;overflow:hidden;padding:15px 0">
     <div style="display:flex;width:max-content;white-space:nowrap;animation:marquee 32s linear infinite">
-      <div style="display:flex;align-items:center"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">MATERNITY HOME</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ANTE-NATAL CARE</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">SAFE DELIVERY</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">FAMILY PLANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ULTRASOUND SCANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">HIV COUNSELING &amp; TESTING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">CONSULTANCY</span><span style="color:#4fd07a;font-size:13px">✚</span></div>
-      <div style="display:flex;align-items:center"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">MATERNITY HOME</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ANTE-NATAL CARE</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">SAFE DELIVERY</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">FAMILY PLANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ULTRASOUND SCANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">HIV COUNSELING &amp; TESTING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">CONSULTANCY</span><span style="color:#4fd07a;font-size:13px">✚</span></div>
+      <div class="marquee-row" style="display:flex;align-items:center"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">MATERNITY HOME</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ANTE-NATAL CARE</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">SAFE DELIVERY</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">FAMILY PLANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ULTRASOUND SCANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">HIV COUNSELING &amp; TESTING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">CONSULTANCY</span><span style="color:#4fd07a;font-size:13px">✚</span></div>
+      <div class="marquee-row" style="display:flex;align-items:center"><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">MATERNITY HOME</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ANTE-NATAL CARE</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">SAFE DELIVERY</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">FAMILY PLANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">ULTRASOUND SCANNING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">HIV COUNSELING &amp; TESTING</span><span style="color:#4fd07a;font-size:13px">✚</span><span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:1.6px;padding:0 24px">CONSULTANCY</span><span style="color:#4fd07a;font-size:13px">✚</span></div>
     </div>
   </div>
 
@@ -282,9 +353,9 @@ textarea{resize:vertical}
     <div style="max-width:1180px;margin:0 auto;padding:64px 28px">
       <div style="text-align:center;max-width:560px;margin:0 auto 44px">
         <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">WHAT WE DO</div>
-        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;color:#0e2f5e;margin:0;line-height:1.1">Complete care, every step of the way</h2>
+        <h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;color:#0e2f5e;margin:0;line-height:1.1">Complete care, every step of the way</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
         <div style="background:#f8faf8;border:1px solid #e8efe8;border-radius:16px;padding:28px">
           <div style="width:46px;height:46px;border-radius:12px;background:#eaf5ee;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <div style="font-weight:800;font-size:17px;color:#0e2f5e;margin-bottom:7px">Ante-Natal Care</div>
@@ -308,7 +379,7 @@ textarea{resize:vertical}
   </section>
 
   <!-- WHY CHOOSE -->
-  <section style="max-width:1180px;margin:0 auto;padding:70px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center">
+  <section class="stack-grid" style="max-width:1180px;margin:0 auto;padding:70px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center">
     <div style="position:relative">
       <div style="background:linear-gradient(160deg,#eaf5ee,#e4efe4);border-radius:24px;padding:44px 40px;position:relative;overflow:hidden">
         <div style="position:absolute;right:-30px;bottom:-30px;width:160px;height:160px;border-radius:50%;background:rgba(28,138,52,.12)"></div>
@@ -318,7 +389,7 @@ textarea{resize:vertical}
     </div>
     <div>
       <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">WHY RASKEM</div>
-      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0 0 24px;line-height:1.12">Trusted maternity care in the heart of Lugbe</h2>
+      <h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0 0 24px;line-height:1.12">Trusted maternity care in the heart of Lugbe</h2>
       <div style="display:flex;flex-direction:column;gap:20px">
         <div style="display:flex;gap:16px"><div style="flex:none;width:40px;height:40px;border-radius:10px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><div style="font-weight:800;font-size:15px;color:#0e2f5e">Experienced, caring team</div><div style="font-size:13.5px;color:#7a8072;line-height:1.6">Trained professionals who treat you like family.</div></div></div>
         <div style="display:flex;gap:16px"><div style="flex:none;width:40px;height:40px;border-radius:10px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><div style="font-weight:800;font-size:15px;color:#0e2f5e">Open 24 hours, every day</div><div style="font-size:13.5px;color:#7a8072;line-height:1.6">Emergency and delivery care whenever you need it.</div></div></div>
@@ -331,10 +402,10 @@ textarea{resize:vertical}
   <section style="background:#fff;border-top:1px solid #eef0f4">
     <div style="max-width:1180px;margin:0 auto;padding:64px 28px">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px">
-        <div><div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">HEALTH TIPS</div><h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#0e2f5e;margin:0;line-height:1.1">Guidance for a healthy pregnancy</h2></div>
+        <div><div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">HEALTH TIPS</div><h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#0e2f5e;margin:0;line-height:1.1">Guidance for a healthy pregnancy</h2></div>
         <span style="font-weight:700;font-size:13.5px;color:#0e3f7e">More tips coming soon →</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
         <div style="border:1px solid #e8efe8;border-radius:16px;overflow:hidden">
           <div style="height:130px;background:linear-gradient(135deg,#0e3f7e,#1c5aa8)"></div>
           <div style="padding:22px"><div style="font-size:11px;font-weight:700;color:#1c8a34;letter-spacing:.5px;margin-bottom:8px">NUTRITION</div><div style="font-weight:800;font-size:16px;color:#0e2f5e;line-height:1.3;margin-bottom:8px">Eating well through every trimester</div><div style="font-size:13px;color:#7a8072;line-height:1.6">Simple, affordable foods that support you and your baby's growth.</div></div>
@@ -354,8 +425,8 @@ textarea{resize:vertical}
   <!-- CTA BAND -->
   <section style="background:linear-gradient(160deg,#0e3f7e,#0a2f5e);position:relative;overflow:hidden">
     <div style="position:absolute;left:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(28,138,52,.5),transparent 70%)"></div>
-    <div style="position:relative;max-width:1180px;margin:0 auto;padding:56px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
-      <div><h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#fff;margin:0 0 8px">Planning your visit?</h2><p style="font-size:15px;color:#a9bcd8;margin:0">We're here to answer your questions, any time of day.</p></div>
+    <div class="cta-band-inner" style="position:relative;max-width:1180px;margin:0 auto;padding:56px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div><h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#fff;margin:0 0 8px">Planning your visit?</h2><p style="font-size:15px;color:#a9bcd8;margin:0">We're here to answer your questions, any time of day.</p></div>
       <div style="display:flex;gap:14px">
         <span onclick="navigate('contact')" style="cursor:pointer;background:#1c8a34;color:#fff;font-weight:700;font-size:14px;padding:15px 28px;border-radius:8px">Contact us</span>
         <a href="tel:08111036705" style="border:1.5px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:14px;padding:15px 28px;border-radius:8px">0811 103 6705</a>
@@ -369,7 +440,7 @@ textarea{resize:vertical}
   <section style="background:linear-gradient(160deg,#eaf5ee,#f6f2e9);border-bottom:1px solid #e6ddca">
     <div style="max-width:1180px;margin:0 auto;padding:60px 28px 54px">
       <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:14px">OUR SERVICES</div>
-      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05;max-width:640px">Comprehensive maternity &amp; health care, all under one roof</h1>
+      <h1 class="page-h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05;max-width:640px">Comprehensive maternity &amp; health care, all under one roof</h1>
       <p style="font-size:16px;line-height:1.7;color:#5a6152;margin:20px 0 0;max-width:560px">From pregnancy to delivery and general family health, our team offers the full range of services your family needs, with professional, confidential care.</p>
     </div>
   </section>
@@ -412,7 +483,7 @@ textarea{resize:vertical}
     <div style="max-width:860px;margin:0 auto;padding:66px 28px">
       <div style="text-align:center;margin-bottom:40px">
         <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">FREQUENTLY ASKED</div>
-        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0">Questions, answered</h2>
+        <h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0">Questions, answered</h2>
       </div>
       <div id="faq-list" style="display:flex;flex-direction:column;gap:12px">
         <div class="faq-item open" onclick="toggleFaq(0)"><div style="display:flex;align-items:center;justify-content:space-between;gap:16px"><h3 style="font-weight:700;font-size:15.5px;color:#0e2f5e;margin:0">Are you open 24 hours?</h3><div class="faq-icon open">+</div></div><div class="faq-answer" style="display:block">Yes. Our maternity home is open 24 hours a day, 7 days a week. Emergencies and deliveries are welcome at any time. Just call ahead if you can.</div></div>
@@ -432,10 +503,10 @@ textarea{resize:vertical}
 <!-- ======================================================== ABOUT ======================================================== -->
 <div id="page-about" class="page">
   <section style="background:linear-gradient(160deg,#eaf5ee,#f6f2e9);border-bottom:1px solid #e6ddca">
-    <div style="max-width:1180px;margin:0 auto;padding:60px 28px 54px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center">
+    <div class="stack-grid" style="max-width:1180px;margin:0 auto;padding:60px 28px 54px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center">
       <div>
         <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:14px">ABOUT US</div>
-        <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05">Caring for mothers &amp; families in Abuja</h1>
+        <h1 class="page-h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05">Caring for mothers &amp; families in Abuja</h1>
         <p style="font-size:16px;line-height:1.75;color:#5a6152;margin:22px 0 0">Raskem Maternity Homes is a maternity home &amp; health care service based in Tudunwada, Lugbe, Abuja. We provide ante-natal, delivery, family planning, scanning, HIV counseling &amp; testing, and general consultancy. We combine professional, clinical standards with the warmth every family deserves.</p>
       </div>
       <div style="background:#fff;border-radius:22px;padding:36px;box-shadow:0 20px 50px -30px rgba(14,63,126,.5);text-align:center">
@@ -446,7 +517,7 @@ textarea{resize:vertical}
   </section>
 
   <section style="max-width:1180px;margin:0 auto;padding:64px 28px">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
       <div style="background:#fff;border:1px solid #eef0f4;border-radius:18px;padding:32px"><div style="font-family:'Newsreader',serif;font-size:24px;color:#1c8a34;margin-bottom:12px">Our Mission</div><div style="font-size:14px;color:#7a8072;line-height:1.7">To deliver safe, compassionate and affordable maternity care that supports every mother from pregnancy through to a healthy delivery and beyond.</div></div>
       <div style="background:#0e3f7e;border-radius:18px;padding:32px"><div style="font-family:'Newsreader',serif;font-size:24px;color:#fff;margin-bottom:12px">Our Vision</div><div style="font-size:14px;color:#b9c9e2;line-height:1.7">To be a trusted name in maternal and family health care in the FCT, known for professional standards and a caring heart.</div></div>
       <div style="background:#fff;border:1px solid #eef0f4;border-radius:18px;padding:32px"><div style="font-family:'Newsreader',serif;font-size:24px;color:#1c8a34;margin-bottom:12px">Our Values</div><div style="font-size:14px;color:#7a8072;line-height:1.7">Safety first, dignity for every patient, confidentiality, and care that is available whenever it is needed, 24 hours a day.</div></div>
@@ -457,9 +528,9 @@ textarea{resize:vertical}
     <div style="max-width:1180px;margin:0 auto;padding:64px 28px">
       <div style="text-align:center;max-width:560px;margin:0 auto 44px">
         <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">WHY FAMILIES CHOOSE US</div>
-        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0;line-height:1.1">Professional care, delivered with warmth</h2>
+        <h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:36px;color:#0e2f5e;margin:0;line-height:1.1">Professional care, delivered with warmth</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+      <div class="grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
         <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">24/7</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Always open for<br>emergencies</div></div>
         <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">7</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Services under<br>one roof</div></div>
         <div style="text-align:center"><div style="font-family:'Newsreader',serif;font-size:40px;color:#1c8a34">100%</div><div style="font-size:13px;color:#7a8072;font-weight:600;margin-top:4px">Confidential<br>counseling</div></div>
@@ -474,12 +545,12 @@ textarea{resize:vertical}
   <section style="background:linear-gradient(160deg,#eaf5ee,#f6f2e9);border-bottom:1px solid #e6ddca">
     <div style="max-width:1180px;margin:0 auto;padding:60px 28px 54px">
       <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:14px">CONTACT US</div>
-      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05">We're here to help, any time</h1>
+      <h1 class="page-h1" style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;color:#0e2f5e;margin:0;line-height:1.05">We're here to help, any time</h1>
       <p style="font-size:16px;line-height:1.7;color:#5a6152;margin:20px 0 0;max-width:520px">Call us, send a message, or visit our maternity home in Lugbe. For emergencies, our line is open 24 hours a day.</p>
     </div>
   </section>
 
-  <section style="max-width:1180px;margin:0 auto;padding:60px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start">
+  <section class="stack-grid" style="max-width:1180px;margin:0 auto;padding:60px 28px;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start">
     <div style="display:flex;flex-direction:column;gap:18px">
       <div style="display:flex;gap:16px;background:#fff;border:1px solid #eef0f4;border-radius:16px;padding:24px">
         <div style="flex:none;width:44px;height:44px;border-radius:11px;background:#eaf5ee;display:flex;align-items:center;justify-content:center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -499,7 +570,7 @@ textarea{resize:vertical}
       <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;color:#0e2f5e;margin:0 0 6px">Send us a message</h2>
       <p style="font-size:13.5px;color:#7a8072;margin:0 0 24px">We'll get back to you as soon as we can.</p>
       <form id="contact-form" onsubmit="handleFormSubmit(event)">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+        <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
           <div><label style="display:block;font-size:12px;font-weight:700;color:#0e2f5e;margin-bottom:6px">Full name</label><input name="name" placeholder="Your name" style="width:100%;border:1.5px solid #dfe4ec;border-radius:10px;padding:12px 14px;font-size:14px;color:#0e2f5e;outline:none;background:#fafbfd"></div>
           <div><label style="display:block;font-size:12px;font-weight:700;color:#0e2f5e;margin-bottom:6px">Phone</label><input name="phone" placeholder="Phone number" style="width:100%;border:1.5px solid #dfe4ec;border-radius:10px;padding:12px 14px;font-size:14px;color:#0e2f5e;outline:none;background:#fafbfd"></div>
         </div>
@@ -514,7 +585,7 @@ textarea{resize:vertical}
   <section style="background:#fff;border-top:1px solid #eef0f4">
     <div style="max-width:1180px;margin:0 auto;padding:60px 28px">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
-        <div><div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">FIND US</div><h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#0e2f5e;margin:0;line-height:1.1">Tudunwada, Lugbe, Abuja</h2></div>
+        <div><div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#1c8a34;margin-bottom:12px">FIND US</div><h2 class="section-h2" style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;color:#0e2f5e;margin:0;line-height:1.1">Tudunwada, Lugbe, Abuja</h2></div>
         <a href="https://www.google.com/maps/search/?api=1&query=Tudun+Wada+Junction+FHA+Lugbe+Abuja" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #cdd8ac;color:#0e3f7e;font-weight:700;font-size:13.5px;padding:12px 22px;border-radius:30px">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c8a34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           Get directions
@@ -532,7 +603,7 @@ textarea{resize:vertical}
 <!-- FOOTER -->
 <footer style="background:#0a2f5e;color:#b9c9e2">
   <div style="max-width:1180px;margin:0 auto;padding:56px 28px 32px">
-    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px">
+    <div class="footer-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px">
       <div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
           <div style="background:#fff;border-radius:10px;padding:6px"><img src="assets/logo.png" style="height:40px;display:block" alt="Raskem logo"></div>
@@ -633,7 +704,37 @@ function navigate(page) {
   });
   if (page === 'services') { renderServices(); renderFaqs(); }
   history.replaceState(null, '', '#' + page);
+  closeMenu();
 }
+
+function toggleMenu() {
+  syncHeaderHeight();
+  const nav = document.getElementById('main-nav');
+  const btn = document.getElementById('menu-toggle');
+  const isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen);
+  document.querySelector('header').classList.toggle('no-blur', isOpen);
+}
+
+function closeMenu() {
+  document.getElementById('main-nav').classList.remove('open');
+  const btn = document.getElementById('menu-toggle');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  document.querySelector('header').classList.remove('no-blur');
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 860) closeMenu();
+  syncHeaderHeight();
+});
+
+function syncHeaderHeight() {
+  const header = document.querySelector('header');
+  document.documentElement.style.setProperty('--header-h', header.getBoundingClientRect().bottom + 'px');
+}
+syncHeaderHeight();
 
 function handleFormSubmit(e) {
   e.preventDefault();
